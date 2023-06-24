@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practice Interview Scheduler</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    .header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .header .logo span {
+      color: #ffcc00;
+    }
+
+    /* Scrolling Banner Styles */
+    .scrolling-banner {
+      background-color: #ffcc00;
+      color: #333;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .scrolling-banner p {
+      animation: scroll-left 20s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Main Content Styles */
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* Advertisement Styles */
+    .advertisement {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .advertisement h2 {
+      color: #333;
+    }
+
+    /* Appointment Booking Styles */
+    .appointment-booking {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .appointment-booking form {
+      margin-top: 20px;
+    }
+
+    .appointment-booking label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .appointment-booking input[type="text"],
+    .appointment-booking input[type="email"],
+    .appointment-booking input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .appointment-booking input[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .appointment-booking input[type="submit"]:hover {
+      background-color: #555;
+    }
+
+    /* Interviewer Photos Styles */
+    .interviewer-photos {
+      width: 100%;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .interviewer-photos img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 10px;
+    }
+
+    /* Footer Styles */
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">Practice Interview <span>Scheduler</span></div>
+  </div>
+
+  <div class="scrolling-banner">
+    <p>Unlock Your Potential: Practice Interview Scheduler..</p>
+  </div>
+
+  <div class="main-content">
+    <div class="advertisement">
+      <h2>Advertisement</h2>
+      <p>Sample subjects: <br><br>
+        "Master Python Programming: From Fundamentals to Advanced Concepts" <br>
+        "Data Science and Machine Learning: A Comprehensive Course" <br>
+        "Introduction to Psychology: Understanding the Human Mind"<br>
+        "Financial Markets and Investment Strategy: A Practical Approach"<br>
+        "Artificial Intelligence: Principles and Applications"<br>
+        "Business Strategy: Analyzing Competitive Advantage"<br>
+        "Creative Writing Workshop: Crafting Compelling Stories"<br>
+        "Introduction to Astrophysics: Exploring the Universe"</p>
+      <h2>Offer</h2>
+      <p>Get 10% flat discount for booking an interview before 30 July 2023.</p>
+    </div>
+
+    <div class="appointment-booking">
+      <h2>Book Appointment</h2>
+      <p>Please fill out the form below to schedule your practice interview.</p>
+      <form id="appointment-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+
+        <input type="submit" value="Schedule Interview">
+      </form>
+    </div>
+  </div>
+
+  <div class="interviewer-photos">
+    <img src="/Users/sa/Downloads/screenshot_folder/Screenshot 2023-06-24 at 5.56.42 PM.png" alt="Interviewer 1">
+    <img src="/Users/sa/Downloads/screenshot_folder/Screenshot 2023-06-24 at 5.56.47 PM.png" alt="Interviewer 2">
+    <img src="/Users/sa/Downloads/screenshot_folder/Screenshot 2023-06-24 at 5.56.32 PM.png" alt="Interviewer 3">
+    <img src="/Users/sa/Downloads/screenshot_folder/Screenshot 2023-06-24 at 5.56.28 PM.png" alt="Interviewer 4">
+    <img src="/Users/sa/Downloads/screenshot_folder/Screenshot 2023-06-24 at 5.56.23 PM.png" alt="Interviewer 5">
+    <img src="/Users/sa/Downloads/screenshot_folder/Screenshot 2023-06-24 at 5.56.19 PM.png" alt="Interviewer 6">
+  </div>
+
+  <footer class="footer">
+    &copy; 2023 Practice Interview Scheduler. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('appointment-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var subject = document.getElementById('subject').value;
+      var date = document.getElementById('date').value;
+
+      var mailtoLink = 'mailto:sradavadkar@gmail.com?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent('Candidate Name: ' + name + '\nEmail: ' + email + '\nSubject: ' + subject + '\nDate: ' + date);
+      window.location.href = mailtoLink;
+
+      alert('Interview scheduled! The admin will contact you soon.');
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('subject').value = '';
+      document.getElementById('date').value = '';
+    });
+  </script>
+<p style="margin-top: 20px; color: #333; font-size: 16px; text-align: center;"> Improve your interview skills and boost your confidence with our professional practice sessions. Get ready to shine in your next job interview!</p>
+
+
+
+</body>
+</html>
